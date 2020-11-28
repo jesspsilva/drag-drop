@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.board-layout {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.board-text {
+    color: #495867;
+}
+
+.add-board input,
+.add-task input {
+    background-color: #577399;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    font-weight: bold;
+    margin: 10px 0 15px 0;
+}
+
+.list-title {
+    color: #577399;
+}
+
+.list-layout {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.board-text {
+    font-weight: bold;
+    font-size: 28px;
+    padding: 5px;
+}
+
+.board-lists {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    height: 400px;
+}
+
+.board-list {
+    background-color: rgb(87, 115, 153, 0.3);
+    box-shadow: 3px 3px 6px rgb(87, 115, 153, 0.2);
+    border-radius: 3px;
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-gap: 10px;
+    height: max-content;
+    padding: 10px;
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.delete {
+    color: #495867;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+}
+
+.delete:hover {
+    color: #fe5f55;
+    cursor: pointer;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+.card {
+    background-color: rgb(87, 115, 153, 0.4);
+    color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px rgb(87, 115, 153, 0.2);
+    padding: 10px;
+    cursor: pointer;
+}
+
+@media (min-width: 1px) and (max-width: 780px) {
+    .board-lists {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+    }
+}
+
+@media (min-width: 1px) and (max-width: 480px) {
+    .board-lists {
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+    }
+}
