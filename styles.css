@@ -111,7 +111,10 @@ body {
     box-shadow: 0 2px 2px rgb(87, 115, 153, 0.2);
     padding: 10px;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
+
 
 @media (min-width: 1px) and (max-width: 780px) {
     .board-lists {

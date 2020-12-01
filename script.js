@@ -10,7 +10,7 @@ function addBoard(e){
             <div class="list-title" contenteditable="true">
                 New Board
             </div>
-            <div class="delete" onclick="DeleteBoard(event)">
+            <div class="delete" onclick="deleteBoard(event)">
                 <i class="fas fa-trash-alt"></i>
             </div>
         </div>
@@ -22,21 +22,40 @@ function addBoard(e){
 }
 
 
-function DeleteBoard(e) {
+function deleteBoard(e) {
     e.preventDefault();
     const element = e.target;
     const listToDelete = element.parentElement.parentElement.parentElement;
     listToDelete.remove();
 }
 
-// Add task btn - to implement
-const addTaskBtn = document.querySelectorAll('.add-task input');
-addTaskBtn.forEach(btn => {
-    btn.addEventListener('click',e => {
-        e.preventDefault();
-        console.log(e.target);
-    })
-});
+function addTask(e) {
+    e.preventDefault();
+
+    const allTasks = document.querySelectorAll('.card');
+    const addTaskButton = e.target.parentElement;
+
+    const position = allTasks.length - 1;
+    const lastID = Number(allTasks[position].id.replace(/[^0-9]/g,'')) + 1;
+
+    const task = `                
+    <div id='card${lastID}' class="card" draggable="true" ondragstart="dragStart(event)">
+        <div class="content">New task</div>
+        <div class="edit" onclick="editTask(event)">
+            <i class="fas fa-pen"></i>
+        </div>
+    </div>`
+    addTaskButton.insertAdjacentHTML("beforebegin", task);
+}
+
+function editTask(e) {
+    e.preventDefault();
+    const element = e.target;
+    const taskEl = element.parentElement.parentElement.firstElementChild;
+    const taskTxt = taskEl.innerText;
+    taskEl.contentEditable = "true";
+    taskEl.focus();
+}
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -48,23 +67,16 @@ function dragStart(ev) {
 
 function dropIt(ev) {
     ev.preventDefault();
-    let sourceId = ev.dataTransfer.getData("text/plain");
-    let sourceIdEl = document.getElementById(sourceId);
-    let sourceIdParentEl = sourceIdEl.parentElement;
-    // ev.target.id here is the id of target Object of the drop
-    let targetEl = document.getElementById(ev.target.parentElement.id)
-    let targetParentEl = targetEl.parentElement;
-    let targetChildEl = targetEl.childNodes;
+    const sourceId = ev.dataTransfer.getData("text/plain");
+    const sourceIdEl = document.getElementById(sourceId);
+    const sourceIdParentEl = sourceIdEl.parentElement;
+    const targetEl = document.getElementById(ev.target.parentElement.id);
+    const targetElChilds = targetEl.childNodes;
 
     if (targetEl.className === sourceIdParentEl.className) {
-        targetChildEl.forEach(el =>  {
-            if(el.className === 'card'){
-                targetEl.appendChild(sourceIdEl);
-                console.log(targetEl);
-            } else {
-                // Append to the list
-                targetEl.appendChild(sourceIdEl);
-                console.log(targetEl);
+        targetElChilds.forEach(child =>  {
+            if(child.className === 'add-task'){
+                child.before(sourceIdEl);
             }
         })
     }

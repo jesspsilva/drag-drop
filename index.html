@@ -22,24 +22,39 @@
                     <div class="list-title" contenteditable="true">
                         To Do
                     </div>
-                    <div class="delete" onclick="DeleteBoard(event)">
+                    <div class="delete" onclick="deleteBoard(event)">
                         <i class="fas fa-trash-alt"></i>
                     </div>
                 </div>
-                <div id='card1' class="card" contenteditable="true" draggable="true" ondragstart="dragStart(event)">
-                    Work on article
+                <div id='card1' class="card" draggable="true" ondragstart="dragStart(event)">
+                    <div class="content">Work on article</div>
+                    <div class="edit" onclick="editTask(event)">
+                        <i class="fas fa-pen"></i>
+                    </div>
                 </div>
-                <div id='card2' class="card" contenteditable="true" draggable="true" ondragstart="dragStart(event)">
-                    Back up database
+                <div id='card2' class="card" draggable="true" ondragstart="dragStart(event)">
+                    <div class="content">Back up database</div>
+                    <div class="edit" onclick="editTask(event)">
+                        <i class="fas fa-pen"></i>
+                    </div>
                 </div>
-                <div id='card3' class="card" contenteditable="true" draggable="true" ondragstart="dragStart(event)">
-                    Create a demo
+                <div id='card3' class="card" draggable="true" ondragstart="dragStart(event)">
+                    <div class="content">Create a demo</div>
+                    <div class="edit" onclick="editTask(event)">
+                        <i class="fas fa-pen"></i>
+                    </div>
                 </div>
-                <div id='card4' class="card" contenteditable="true" draggable="true" ondragstart="dragStart(event)">
-                    Work on course content
+                <div id='card4' class="card" draggable="true" ondragstart="dragStart(event)">
+                    <div class="content">Work on course content</div>
+                    <div class="edit" onclick="editTask(event)">
+                        <i class="fas fa-pen"></i>
+                    </div>
                 </div>
-                <div id='card5' class="card" contenteditable="true" draggable="true" ondragstart="dragStart(event)">
-                    Start learn React
+                <div id='card5' class="card" draggable="true" ondragstart="dragStart(event)">
+                    <div class="content">Start learn React</div>
+                    <div class="edit" onclick="editTask(event)">
+                        <i class="fas fa-pen"></i>
+                    </div>
                 </div>
                 <div class="add-task">
                     <input type="button" value="Add task" onclick="addTask(event)">
@@ -50,7 +65,7 @@
                     <div class="list-title" contenteditable="true">
                         In Progress
                     </div>
-                    <div class="delete" onclick="DeleteBoard(event)">
+                    <div class="delete" onclick="deleteBoard(event)">
                         <i class="fas fa-trash-alt"></i>
                     </div>
                 </div>
@@ -63,7 +78,7 @@
                     <div class="list-title" contenteditable="true">
                         Done
                     </div>
-                    <div class="delete" onclick="DeleteBoard(event)">
+                    <div class="delete" onclick="deleteBoard(event)">
                         <i class="fas fa-trash-alt"></i>
                     </div>
                 </div>
