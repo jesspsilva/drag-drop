@@ -10,7 +10,7 @@ function addBoard(e){
             <div class="list-title" contenteditable="true">
                 New Board
             </div>
-            <div class="delete">
+            <div class="delete" onclick="DeleteBoard(event)">
                 <i class="fas fa-trash-alt"></i>
             </div>
         </div>
@@ -21,22 +21,20 @@ function addBoard(e){
     boardContainer.innerHTML += board;
 }
 
-const deleteBtn = document.querySelectorAll('.delete input');
-deleteBtn.forEach(btn => {
-    btn.addEventListener('click',e => {
-        e.preventDefault();
-        const element = e.target;
-        const listToDelete = element.parentElement.parentElement.parentElement;
-        listToDelete.remove();
-    })
-});
+
+function DeleteBoard(e) {
+    e.preventDefault();
+    const element = e.target;
+    const listToDelete = element.parentElement.parentElement.parentElement;
+    listToDelete.remove();
+}
 
 // Add task btn - to implement
 const addTaskBtn = document.querySelectorAll('.add-task input');
 addTaskBtn.forEach(btn => {
     btn.addEventListener('click',e => {
         e.preventDefault();
-        alert('Under development')
+        console.log(e.target);
     })
 });
 

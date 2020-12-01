@@ -31,6 +31,14 @@ body {
     -o-border-radius: 3px;
     font-weight: bold;
     margin: 10px 0 15px 0;
+    outline: none;
+}
+
+.add-board input:hover,
+.add-task input:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #577399;
 }
 
 .list-title {
